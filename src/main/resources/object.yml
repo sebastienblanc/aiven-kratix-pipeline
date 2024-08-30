@@ -1,0 +1,8 @@
+apiVersion: org.sebi/v1alpha1
+kind: Database
+metadata:
+  name: sebi-postgres
+spec:
+  type: pg
+  project: devrel-sebastien
+  plan: startup-4

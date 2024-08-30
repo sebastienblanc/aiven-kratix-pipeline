@@ -1,0 +1,31 @@
+apiVersion: aiven.io/v1alpha1
+kind: PostgreSQL
+metadata:
+  name: pg-sample
+  namespace: default
+spec:
+
+  # gets the authentication token from the `aiven-token` secret
+  authSecretRef:
+    name: aiven-token
+    key: token
+
+  # outputs the PostgreSQL connection on the `pg-connection` secret
+  connInfoSecretTarget:
+    name: pg-connection
+
+  # add your Project name here
+  project: to-change
+
+  # cloud provider and plan of your choice
+  # you can check all of the possibilities here https://aiven.io/pricing
+  cloudName: google-europe-west1
+  plan: to-change
+
+  # general Aiven configuration
+  maintenanceWindowDow: friday
+  maintenanceWindowTime: 23:00:00
+
+  # specific PostgreSQL configuration
+  userConfig:
+    pg_version: '15'

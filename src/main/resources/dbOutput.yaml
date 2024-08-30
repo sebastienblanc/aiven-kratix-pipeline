@@ -1,0 +1,18 @@
+---
+apiVersion: "aiven.io/v1alpha1"
+kind: "PostgreSQL"
+metadata:
+  name: "pg-sebi"
+spec:
+  authSecretRef:
+    key: "token"
+    name: "aiven-token"
+  cloudName: "google-europe-west1"
+  connInfoSecretTarget:
+    name: "pg-connection"
+  maintenanceWindowDow: "friday"
+  maintenanceWindowTime: "23:00:00"
+  plan: "startup-4"
+  project: "devrel-sebastien"
+  userConfig:
+    pg_version: "15"

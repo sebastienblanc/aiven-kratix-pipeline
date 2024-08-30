@@ -1,0 +1,26 @@
+apiVersion: aiven.io/v1alpha1
+kind: MySQL
+metadata:
+  name: mysql-sample
+  namespace: default
+spec:
+  # gets the authentication token from the `aiven-token` Secret
+  authSecretRef:
+    name: aiven-token
+    key: token
+
+  # outputs the MySQL connection on the `mysql-secret` Secret
+  connInfoSecretTarget:
+    name: mysql-secret
+
+  # add your Project name here
+  project: changeme
+
+  # cloud provider and plan of your choice
+  # you can check all of the possibilities here https://aiven.io/pricing
+  cloudName: google-europe-west1
+  plan: changeme
+
+  # general Aiven configuration
+  maintenanceWindowDow: friday
+  maintenanceWindowTime: 23:00:00
